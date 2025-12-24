@@ -17,8 +17,8 @@ if !exists("g:vim_ai_roles_config_file")
 endif
 
 " read json from g:vim_ai_config_file_path,and encode to json
-if filereadable(g:vim_ai_config_file_path)
-  let g:vim_ai_config_map = json_decode(join(readfile(g:vim_ai_config_file_path)))[g:vim_ai_name]
+if filereadable(expand(g:vim_ai_config_file_path))
+  let g:vim_ai_config_map = json_decode(join(readfile(expand(g:vim_ai_config_file_path))))[g:vim_ai_name]
   if !has_key(g:vim_ai_config_map, "model")
     let g:vim_ai_config_map["model"] = ""
   endif

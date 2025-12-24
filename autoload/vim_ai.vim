@@ -333,7 +333,7 @@ endfunc
 
 " edit config file
 function! vim_ai#AIConfigEditRun() abort
-  let l:file_exist=filereadable(g:vim_ai_config_file_path)
+  let l:file_exist=filereadable(expand(g:vim_ai_config_file_path))
   exe "edit " . g:vim_ai_config_file_path
   if !l:file_exist
     call s:PrecodeConfig()

@@ -91,6 +91,8 @@ def render_text_chunks(chunks, is_selection):
     full_text = ''
     insert_before_cursor = need_insert_before_cursor(is_selection)
     for text in chunks:
+        if text is None:
+            continue
         if not text.strip() and not generating_text:
             continue # trim newlines from the beginning
         generating_text = True
